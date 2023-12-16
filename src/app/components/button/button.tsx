@@ -8,7 +8,7 @@ export default function Button({
                                   style={},
                                   url = '/',
                                   label = "",
-                                  className
+                                  className=""
                                   ///value='',
                               }:IButton) {
     const [value, setValue] = useState("")
