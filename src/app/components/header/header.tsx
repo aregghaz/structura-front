@@ -48,7 +48,7 @@ export default function Header() {
 
                     <Button
                         className={styles.button}
-                        url={'find'}
+                        url={'search'}
                         label={'найти документ по похожим словам'}
 
                     />
@@ -61,7 +61,7 @@ export default function Header() {
 
                     <Button
                         className={styles.profileButton}
-                        url={'find'}
+                        url={'/auth/login'}
                         label={'мой кабинет'}
 
                     />
