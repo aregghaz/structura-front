@@ -1,7 +1,10 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-
+import "@fontsource/comfortaa"; // Defaults to weight 400
+import "@fontsource/comfortaa/400.css";
+import styles from "@/app/auth/page.module.css";
+import React from "react"; // Specify weight
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -16,7 +19,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>       <div
+          className={styles.noise_element}
+      />{children}</body>
     </html>
   )
 }

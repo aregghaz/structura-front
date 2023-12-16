@@ -1,0 +1,13 @@
+#input::placeholder {
+    font-weight: bold;
+    opacity: 0.5;
+    color: #07ee07;
+}
+.my-input::placeholder {
+    font-weight: bold;
+    opacity: 0.5;
+    color: #000000;
+    margin-right: 20px;
+    margin-left: 20px;
+    padding: 0 20px;
+}
