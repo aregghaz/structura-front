@@ -4,11 +4,13 @@ import {IUser} from "@/types/global";
 
 // Define a type for the slice state
 export interface UserState {
+    token:string,
     user: IUser
 }
 
 // Define the initial state using that type
 const initialState: UserState = {
+    token:'',
     user: {
         email: '',
         name: '',
@@ -34,12 +36,16 @@ export const UsersSlice = createSlice({
             }
          ///   return state
         },
+        setToken : (state,action) :void => {
+            state.token = action.payload
+        },
     }
 })
 
-export const {registration} = UsersSlice.actions
+export const {registration,setToken} = UsersSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type
 export const userData = (state: RootState) => state.users.user
+export const tokenData = (state: RootState) => state.users.token
 
 export default UsersSlice.reducer

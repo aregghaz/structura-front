@@ -5,13 +5,18 @@ import Input from "../../components/input/Input"
 import Link from "next/link";
 import Button from "@/app/components/button/button";
 import {REG_API} from "@/api/registration";
+import {setToken} from "@/app/lib/users/users";
+import {useDispatch} from "react-redux";
+import axios from "axios";
 
 export default function Login() {
+    const dispatch = useDispatch()
+
     const [login, setLogin] = useState({
         email: '',
         password: '',
     })
-    const handlerLogin = (key:string, value:string) => {
+    const handlerLogin = (key: string, value: string) => {
         setLogin((state) => {
             return {
                 ...state,
@@ -21,7 +26,9 @@ export default function Login() {
     }
     const handlerSubmit = async () => {
         const data = await REG_API.login(login)
-        console.log(data,'datadata')
+        const {access_token} = data
+        dispatch(setToken(access_token))
+        // console.log(data, 'datadata')
     }
     return (
 
