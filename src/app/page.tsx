@@ -11,7 +11,7 @@ export default function Home() {
 
     useEffect(() => {
         if (getToken.length === 0) {
-            router.push('/auth/login',)
+            router.push('/auth/login')
 
         }
     }, [getToken])
