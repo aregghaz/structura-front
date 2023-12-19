@@ -6,9 +6,10 @@ import {IButton} from "@/types/global";
 
 export default function Button({
                                   style={},
-                                  url = '/',
+                                  url = '',
                                   label = "",
-                                  className=""
+                                  className="",
+                                   onClick,
                                   ///value='',
                               }:IButton) {
     const [value, setValue] = useState("")
@@ -16,6 +17,6 @@ export default function Button({
         setValue(e.target.value)
     }
     return <>
-        <Link href={url} className={className} style={style}>{label}</Link>
+        <Link href={url} onClick={onClick} className={className} style={style}>{label}</Link>
     </>
 }

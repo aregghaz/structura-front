@@ -41,7 +41,8 @@ export default function Registration() {
                     </div>
                     <div style={{width: 510, height: 65, marginBottom: 20}}>
                         <Input
-                            name={'lastName'}
+                            name={'surname'}
+                            register={true}
                             label={'ваше второе имя'}
                             className="my-input"
                             style={{
@@ -56,6 +57,7 @@ export default function Registration() {
                     <div style={{width: 510, height: 65, marginBottom: 20}}>
                         <Input
                             name={'fatherName'}
+                            register={true}
                             label={'ваше отчество'}
                             className="my-input"
                             style={{
@@ -70,6 +72,7 @@ export default function Registration() {
                     <div style={{width: 510, height: 65, marginBottom: 20}}>
                         <Input
                             name={'dob'}
+                            register={true}
                             label={'ваша дата рождения'}
                             className="my-input"
                             style={{

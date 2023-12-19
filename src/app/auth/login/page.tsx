@@ -1,10 +1,28 @@
+"use client"
 import styles from '../page.module.css'
-import React from "react";
+import React, {useState} from "react";
 import Input from "../../components/input/Input"
 import Link from "next/link";
 import Button from "@/app/components/button/button";
+import {REG_API} from "@/api/registration";
 
-export default function login() {
+export default function Login() {
+    const [login, setLogin] = useState({
+        email: '',
+        password: '',
+    })
+    const handlerLogin = (key:string, value:string) => {
+        setLogin((state) => {
+            return {
+                ...state,
+                [key]: value
+            }
+        })
+    }
+    const handlerSubmit = async () => {
+        const data = await REG_API.login(login)
+        console.log(data,'datadata')
+    }
     return (
 
         <>
@@ -16,7 +34,7 @@ export default function login() {
             </div>
             <div className={styles.formDiv} style={{backgroundColor: 'white'}}>
 
-                <div >
+                <div>
                     <div className={styles.formText}>Авторизация
                     </div>
                     <div className={styles.formText2}>
@@ -25,9 +43,10 @@ export default function login() {
                 </div>
                 <div style={{width: 510, height: 65, marginBottom: 20}}>
                     <Input
-                        name={'username'}
+                        name={'email'}
                         label={'ваш электронный ящик'}
                         className="my-input"
+                        handlerAction={handlerLogin}
                         style={{
                             width: 510,
                             height: 65,
@@ -42,6 +61,7 @@ export default function login() {
                         label={'ваш пароль'}
                         type={'password'}
                         className="my-input"
+                        handlerAction={handlerLogin}
                         style={{
                             width: 510,
                             height: 65,
@@ -63,7 +83,8 @@ export default function login() {
                         <Button
                             className={styles.aut_btn_text}
                             label={'авторизоваться'}
-                            url={`/`}
+                            onClick={handlerSubmit}
+                            url={``}
                         />
                     </div>
 

@@ -1,10 +1,21 @@
+"use client"
 import styles from '../../page.module.css'
 import React from "react";
 import Input from "../../../components/input/Input"
 import Link from "next/link";
 import Button from "@/app/components/button/button";
+import {REG_API} from "@/api/registration";
+import {useSelector} from "react-redux";
 
 export default function Passport() {
+
+    const regData = useSelector((state:any) => state.users.user)
+
+    const regUser = async () => {
+        const data = await REG_API.registration(regData);
+        console.log(data, 'datadatadatadata')
+    }
+
     return (
         <>
             <div style={{textAlign: 'center', paddingTop: 30, paddingBottom: 60}}>
@@ -18,7 +29,7 @@ export default function Passport() {
 
                 <div className={styles.formDiv} style={{backgroundColor: 'white'}}>
 
-                    <div >
+                    <div>
                         <div className={styles.formText}>3 из 3 шагов регистрации
                         </div>
                         <div className={styles.formText2}>
@@ -30,6 +41,7 @@ export default function Passport() {
                             name={'passport'}
                             label={'мой внутренний паспорт страны'}
                             className="my-input"
+                            register={true}
                             style={{
                                 width: 510,
                                 height: 65,
@@ -44,6 +56,7 @@ export default function Passport() {
                             name={'country'}
                             label={'страна выдачи паспорта'}
                             className="my-input"
+                            register={true}
                             style={{
                                 width: 510,
                                 height: 65,
@@ -58,6 +71,7 @@ export default function Passport() {
                             name={'passportNumber'}
                             label={'номер и серия паспорта'}
                             className="my-input"
+                            register={true}
                             style={{
                                 width: 510,
                                 height: 65,
@@ -82,6 +96,7 @@ export default function Passport() {
                                 className={styles.aut_btn_text}
                                 label={'подтвердить'}
                                 url={`/auth/registration/success`}
+                                onClick={regUser}
                             />
 
                         </div>
@@ -112,24 +127,6 @@ export default function Passport() {
                     </div>
                 </div>
 
-                {/*<div style={{width: 35, height: 35, left: 703, top: 740, position: 'absolute'}}>*/}
-                {/*    <div style={{*/}
-                {/*        width: 35,*/}
-                {/*        height: 35,*/}
-                {/*        left: 0,*/}
-                {/*        top: 0,*/}
-                {/*        position: 'absolute',*/}
-                {/*        background: 'linear-gradient(135deg, black 0%, #252525 100%)'*/}
-                {/*    }}></div>*/}
-                {/*    <div style={{*/}
-                {/*        width: 20.90,*/}
-                {/*        height: 19.56,*/}
-                {/*        left: 7.05,*/}
-                {/*        top: 7.72,*/}
-                {/*        position: 'absolute',*/}
-                {/*        background: 'white'*/}
-                {/*    }}></div>*/}
-                {/*</div>*/}
 
             </div>
 

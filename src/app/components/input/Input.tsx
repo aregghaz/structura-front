@@ -1,18 +1,26 @@
 "use client"
 import React, {useState} from "react";
-import styles from './inputa.module.css'
 import {IInput} from "@/types/global";
+
+import {registration} from "@/app/lib/users/users";
+
+import {AppDispatch, useAppDispatch} from "@/app/lib/store";
+import {useDispatch} from "react-redux";
 
 export default function Input({
                                   style,
                                   name,
                                   label = "",
-                                  type="text",
-                                  className
+                                  type = "text",
+                                  className,
+                                  register = false,
+                                  handlerAction
                                   ///value='',
-                              }:IInput) {
+                              }: IInput) {
     const [value, setValue] = useState("")
-    const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
+    const dispatch = useDispatch()
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setValue(e.target.value)
     }
     return <>
@@ -24,6 +32,16 @@ export default function Input({
             name={name}
             type={type}
             value={value}
+            onBlur={(e) => {
+                if (handlerAction) {
+                    handlerAction(name, e.target.value)
+                }
+                if (register) {
+                    const value = e.target.value
+                    const dataValue ={key:name, value:value}
+                    dispatch(registration(dataValue))
+                }
+            }}
             onChange={(e) => {
                 handleChange(e)
                 ///changeHandler(e.target.value,name)
