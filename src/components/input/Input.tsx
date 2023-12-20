@@ -2,9 +2,9 @@
 import React, {useState} from "react";
 import {IInput} from "@/types/global";
 
-import {registration} from "@/app/lib/users/users";
+import {registration} from "@/lib/users/users";
 
-import {AppDispatch, useAppDispatch} from "@/app/lib/store";
+import {AppDispatch, useAppDispatch} from "@/lib/store";
 import {useDispatch} from "react-redux";
 
 export default function Input({

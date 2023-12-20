@@ -1,11 +1,11 @@
 "use client"
 import styles from '../page.module.css'
 import React, {useState} from "react";
-import Input from "../../components/input/Input"
+import Input from "../../../components/input/Input"
 import Link from "next/link";
-import Button from "@/app/components/button/button";
+import Button from "@/components/button/button";
 import {REG_API} from "@/api/registration";
-import {setToken} from "@/app/lib/users/users";
+import {setToken} from "@/lib/users/users";
 import {useDispatch} from "react-redux";
 import axios from "axios";
 import {useRouter} from "next/navigation";
@@ -28,6 +28,8 @@ export default function Login() {
     const handlerSubmit = async () => {
         const data = await REG_API.login(login)
         const {access_token} = data
+        localStorage.setItem("access_token", access_token)
+
         dispatch(setToken(access_token))
         router.push('/')
         // console.log(data, 'datadata')

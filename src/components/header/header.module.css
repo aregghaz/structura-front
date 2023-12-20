@@ -1,7 +1,7 @@
 .header {
     display: flex;
     flex-direction: row;
-    margin-left: 4.69rem;
+justify-content: space-around;
     margin-top: 50px;
 }
 
@@ -105,4 +105,5 @@
 .button_div {
     display: flex;
     margin-left: 75px;
+    width: 790px;
 }

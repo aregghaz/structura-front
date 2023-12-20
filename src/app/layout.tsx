@@ -5,7 +5,7 @@ import "@fontsource/comfortaa"; // Defaults to weight 400
 import "@fontsource/comfortaa/400.css";
 import styles from "@/app/auth/page.module.css";
 import React from "react";
-import ReduxProvider from "@/app/components/providers/reduxProvider";
+import ReduxProvider from "@/components/providers/reduxProvider";
 
 const inter = Inter({subsets: ['latin']})
 

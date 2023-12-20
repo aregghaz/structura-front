@@ -1,9 +1,9 @@
 "use client"
 import styles from '../../page.module.css'
 import React from "react";
-import Input from "../../../components/input/Input"
+import Input from "../../../../components/input/Input"
 import Link from "next/link";
-import Button from "@/app/components/button/button";
+import Button from "@/components/button/button";
 import {REG_API} from "@/api/registration";
 import {useSelector} from "react-redux";
 
