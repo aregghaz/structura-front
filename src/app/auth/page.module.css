@@ -118,6 +118,10 @@
     margin-bottom: 20px;
 }
 .body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 30px;
 }
 .placholder {
     display: flex;

@@ -5,7 +5,7 @@ body {
     font-family: "Comfortaa";
     background: url('/images/noise.png');
     background-size:cover ;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 input::-webkit-input-placeholder {
     color: red;

@@ -1,0 +1,24 @@
+.content{
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+}
+.buttonSection{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 60px;
+    margin-bottom: 25px;
+    z-index: 1;
+}
+.buttonSection div{
+    margin-left: 6px;
+
+}
+.body{
+    display: flex;
+    height: 500px;
+    border-radius: 5px;
+    background: #F5F5F5;
+    flex-shrink: 0;
+}

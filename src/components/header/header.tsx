@@ -42,7 +42,7 @@ export default function Header() {
                 </div>
 
             </div>
-            <div className={styles.search} style={{width:80, overflow:"hidden"}}>
+            <div className={styles.search}>
                 <div>
                     <Image src={'./images/search.svg'} width={25} height={25} alt={'upload'}/>
 
@@ -55,19 +55,19 @@ export default function Header() {
                 </div>
 
             </div>
-        </div>
-        <div className={styles.profile}>
-            <div>
-                <Image src={'./images/user.svg'} width={25} height={25} alt={'upload'}/>
+            <div className={styles.profile}>
+                <div>
+                    <Image src={'./images/user.svg'} width={25} height={25} alt={'upload'}/>
 
-                <Button
-                    className={styles.profileButton}
-                    url={'/auth/login'}
-                    label={'мой кабинет'}
+                    <Button
+                        className={styles.profileButton}
+                        url={'/auth/login'}
+                        label={'мой кабинет'}
 
-                />
+                    />
+                </div>
+
             </div>
-
         </div>
     </div>
 }

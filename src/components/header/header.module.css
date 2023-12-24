@@ -1,7 +1,7 @@
 .header {
     display: flex;
     flex-direction: row;
-justify-content: space-around;
+    margin-left: 4.69rem;
     margin-top: 50px;
 }
 
@@ -105,5 +105,4 @@ justify-content: space-around;
 .button_div {
     display: flex;
     margin-left: 75px;
-    width: 790px;
 }

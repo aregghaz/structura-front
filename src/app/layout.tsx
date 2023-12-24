@@ -3,7 +3,6 @@ import {Inter} from 'next/font/google'
 import './globals.css'
 import "@fontsource/comfortaa"; // Defaults to weight 400
 import "@fontsource/comfortaa/400.css";
-import styles from "@/app/auth/page.module.css";
 import React from "react";
 import ReduxProvider from "@/components/providers/reduxProvider";
 
@@ -23,10 +22,9 @@ export default function RootLayout({
         <html lang="en">
         <body className={inter.className}>
         <ReduxProvider>
-            <div
-                className={styles.noise_element}
-            />
+
             {children}
+
         </ReduxProvider>
         </body>
         </html>
