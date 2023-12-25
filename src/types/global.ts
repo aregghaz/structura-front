@@ -5,14 +5,15 @@ export interface IButton {
     className: string,
     onClick?: () => void
 }
+
 export interface IInput {
     style?: {},
     label: string,
     type?: string,
     name: string,
     className?: string,
-    register?:boolean
-    handlerAction?:(key:string, value:string) => void
+    register?: boolean
+    handlerAction?: (key: string, value: string) => void
     // onClick:(key:string, value:string) => void
 }
 
@@ -26,9 +27,19 @@ export interface IUser {
     password: string;
     dob: string;
 }
+
 export interface IDocument {
     body: string;
     folderId: number;
+
+}
+
+export interface IDropDown {
+    data: Array<{ id: number, label: string }>,
+    label?: string,
+    icon: string,
+    style?: string,
+    handlerAction?: (id:number) => void
 
 }
 

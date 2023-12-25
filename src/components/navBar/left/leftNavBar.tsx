@@ -1,26 +1,70 @@
-"use cspanent"
-import React from "react";
+"use client"
+import React, {useEffect, useState} from "react";
 import styles from "./navbar.module.css"
-import Image from "next/image";
+import {DOCUMENT_API} from "@/api/document";
+import ItemMenu from "@/components/navBar/left/item";
+import {useDispatch, useSelector} from "react-redux";
+import {getLoading, setMenu} from "@/lib/menu/menu";
 
 export default function LeftNavBar() {
-const count = 0
+    const dispatch = useDispatch()
+    const loading = useSelector(getLoading)
+    const getDocuments = async () => {
+        const data: any = await DOCUMENT_API.get()
+        dispatch(setMenu(data))
+    }
+    useEffect(() => {
+        getDocuments()
+    }, [loading])
+
     return <div className={styles.body}>
         <h2>Документы</h2>
         {/*<ul >*/}
-           <div className={styles.menuList}>
-               <span>
-                   <Image className={styles.image} width={19} height={19} src={'images/shareFat.svg'} alt={'shareFat'}/>
-                   <span className={styles.text}>Входящие</span>
-                   <span className={styles.count}>{count}</span>
-               </span>
-               <span><Image className={styles.image} width={19} height={19} src={'images/fireSimple.svg'} alt={'fireSimple'}/><span className={styles.text}>Горящие</span>  <span className={styles.count}>{count}</span></span>
-               <span><Image className={styles.image} width={19} height={19} src={'images/vector.svg'} alt={'vector'}/><span className={styles.text}>Исходящие</span>  <span className={styles.count}>{count}</span></span>
-               <span><Image className={styles.image} width={19} height={19} src={'images/star.svg'} alt={'star'}/><span className={styles.text}>Важные</span>  <span className={styles.count}>{count}</span></span>
-               <span><Image className={styles.image} width={19} height={19} src={'images/clipboard.svg'} alt={'clipboard'}/><span className={styles.text}>Черновые</span>  <span className={styles.count}>{count}</span></span>
-               <span><Image className={styles.image} width={19} height={19} src={'images/vector2.svg'} alt={'vector2'}/><span className={styles.text}>Шаблонные</span>  <span className={styles.count}>{count}</span></span>
-               <span><Image className={styles.image} width={19} height={19} src={'images/trashSimple.svg'} alt={'trashSimple'}/><span className={styles.text}>Корзина</span>  <span className={styles.count}>{count}</span></span>
-           </div>
+        <div className={styles.menuList}>
+            <ItemMenu
+                id={10}
+                icon={'images/shareFat.svg'}
+                text={'Входящие'}
+               // data={state}
+            />
+            <ItemMenu
+                id={11}
+                icon={'images/fireSimple.svg'}
+                text={'Горящие'}
+               // data={state}
+            />
+            <ItemMenu
+                id={11}
+                icon={'images/vector.svg'}
+                text={'Исходящие'}
+              //  data={state}
+            />
+            <ItemMenu
+                id={1}
+                icon={'images/star.svg'}
+                text={'Важные'}
+              //  data={state}
+            />
+            <ItemMenu
+                id={2}
+                icon={'images/clipboard.svg'}
+                text={'Черновые'}
+               // data={state}
+            />
+            <ItemMenu
+                id={3}
+                icon={'images/vector2.svg'}
+                text={'Шаблонные'}
+               // data={state}
+            />
+            <ItemMenu
+                id={3}
+                icon={'images/trashSimple.svg'}
+                text={'Корзина'}
+               /// data={state}
+            />
+
+        </div>
 
         {/*</ul>*/}
     </div>

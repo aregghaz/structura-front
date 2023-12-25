@@ -17,18 +17,25 @@
 }
 .body{
     display: flex;
-    height: 500px;
+
     border-radius: 5px;
     background: #F5F5F5;
     flex-shrink: 0;
 }
 .icon_Body{
-    position: relative;
+    /*position: relative;*/
+    /*height: 50px;*/
+    /*width: 50px;*/
+    /*!*background-color: black;*!*/
+    /*left: 90%;*/
+    /*top: 20px;*/
+
+    position: absolute;
     height: 50px;
     width: 50px;
-    /*background-color: black;*/
-    left: 90%;
-    top: 20px;
+     background-color: black;
+    left: 70rem;
+    top: 20rem;
 }
 .button_body{
     border-radius: 25px;

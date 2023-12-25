@@ -2,6 +2,7 @@
 import {useState} from "react";
 import styles from './dropDown.module.css'
 import Image from "next/image";
+import {IDropDown} from "@/types/global";
 
 export const Dropdown = ({
                              data,
@@ -9,7 +10,7 @@ export const Dropdown = ({
                              icon = '',
                              style = '',
                              handlerAction
-                         }) => {
+                         }:IDropDown) => {
     const [isOpen, setOpen] = useState(false);
     const [items, setItem] = useState(data);
     const [selectedItem, setSelectedItem] = useState(null);

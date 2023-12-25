@@ -7,21 +7,20 @@ import Layout from "@/components/layout/layout";
 import {setBody} from "@/lib/document/document";
 import {useDispatch, useSelector} from "react-redux";
 import {DOCUMENT_API} from "@/api/document";
+import {setLoading} from "@/lib/menu/menu";
 
 export default function Upload() {
     const dispatch = useDispatch()
-    const documentBody = useSelector((state) => state.documents.body)
+    const documentBody = useSelector((state:any) => state.documents.body)
     const handlerChangeFolder = async (id: number) => {
         console.log(id, documentBody, 'asdsa')
         const res = await DOCUMENT_API.upload({body: documentBody, folderId: id})
-        console.log(res,'resres')
+      dispatch(setLoading(true))
     }
 
-    const handleChangeBody = (e) => {
+    const handleChangeBody = (e:any) => {
         const {name, value} = e.target;
         dispatch(setBody(value))
-        ///  setBody({ ...body, [name]: value });
-        /// console.log(body,'asdasd')
     };
     return (
         <Layout>
@@ -54,17 +53,20 @@ export default function Upload() {
                             handlerAction={handlerChangeFolder}
                         />
                     </div>
-                </div>
-                <textarea
-                    ///className="bg-gray-200 w-full rounded-lg shadow border p-2"
-                    rows="5"
-                    placeholder="Ecrivez votre publication ici"
-                    // OnChange={setFormData}
-                    onBlur={handleChangeBody}
-                    name="body"
-                    id="pub"
+                    <textarea
 
-                ></textarea>
+                        ///className="bg-gray-200 w-full rounded-lg shadow border p-2"
+                        // rows={10}
+                        // cols={20}
+                        placeholder="Ecrivez votre publication ici"
+                        // OnChange={setFormData}
+                        onBlur={handleChangeBody}
+                        name="body"
+                        id="pub"
+
+                    ></textarea>
+                </div>
+
             </div>
 
 

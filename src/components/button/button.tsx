@@ -1,19 +1,18 @@
 "use client"
 import React, {useState} from "react";
-import styles from './inputa.module.css'
 import Link from "next/link";
 import {IButton} from "@/types/global";
 
 export default function Button({
-                                  style={},
-                                  url = '',
-                                  label = "",
-                                  className="",
+                                   style = {},
+                                   url = '',
+                                   label = "",
+                                   className = "",
                                    onClick,
-                                  ///value='',
-                              }:IButton) {
+                                   ///value='',
+                               }: IButton) {
     const [value, setValue] = useState("")
-    const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setValue(e.target.value)
     }
     return <>

@@ -9,6 +9,7 @@ import {setToken} from "@/lib/users/users";
 import {useDispatch} from "react-redux";
 import {useRouter} from "next/navigation";
 
+
 export default function Login() {
     const dispatch = useDispatch()
     const router = useRouter()
@@ -29,7 +30,6 @@ export default function Login() {
         const {access_token} = data
         if (access_token) {
             localStorage.setItem("access_token", access_token)
-
             dispatch(setToken(access_token))
             router.push('/')
         }
