@@ -19,7 +19,6 @@ const initialState: UserState = {
         country: '',
         passport: '',
         password: 'admin',
-        isActive: false,
         dob: '',
     }
 }
@@ -36,7 +35,7 @@ export const UsersSlice = createSlice({
             }
          ///   return state
         },
-        setToken : (state,action) :void => {
+        setToken : (state, action) :void => {
             state.token = action.payload
         },
     }

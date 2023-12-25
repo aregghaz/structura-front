@@ -24,6 +24,11 @@ export interface IUser {
     country: string;
     passport: string;
     password: string;
-    isActive: boolean;
     dob: string;
 }
+export interface IDocument {
+    body: string;
+    folderId: number;
+
+}
+

@@ -22,3 +22,14 @@
     background: #F5F5F5;
     flex-shrink: 0;
 }
+.icon_Body{
+    position: relative;
+    height: 50px;
+    width: 50px;
+    /*background-color: black;*/
+    left: 90%;
+    top: 20px;
+}
+.button_body{
+    border-radius: 25px;
+}

@@ -7,6 +7,17 @@ export const uploadSelect = {
             id: 2, label: "удалить"
         }
     ],
+    bodySelect :[
+        {
+            id: 1, label: "добавить в важные"
+        },
+        {
+            id: 2, label: "добавить в черновые"
+        },
+        {
+            id: 3, label: "добавить в шаблонные"
+        }
+    ],
     secondSelect :[
         {
             id: 1,

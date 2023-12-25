@@ -61,7 +61,7 @@ export default function Header() {
 
                     <Button
                         className={styles.profileButton}
-                        url={'/auth/login'}
+                        url={'/profile'}
                         label={'мой кабинет'}
 
                     />

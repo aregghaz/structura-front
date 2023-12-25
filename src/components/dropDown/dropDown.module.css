@@ -1,6 +1,6 @@
 
 .dropdown {
-    width: 300px;
+    /*width: 300px;*/
     border-radius: 10px;
     box-shadow: 0 10px 25px rgba(0,0,0,.1);
     background-color: white;
@@ -22,8 +22,16 @@
     display: none;
     background-color: white;
 }
-
-.dropdown_body.open {
+.dropdown_body_left {
+    position: relative;
+    right: 100%;
+    top: -50px;
+    padding: 5px;
+    border-top: 1px solid #E5E8EC;
+    display: none;
+    background-color: white;
+}
+.dropdown_body.open, .dropdown_body_left.open {
     display: block;
 }
 

@@ -29,6 +29,7 @@ export default function Registration() {
                         <Input
                             name={'name'}
                             label={'ваше имя'}
+                            register={true}
                             className="my-input"
                             style={{
                                 width: 510,

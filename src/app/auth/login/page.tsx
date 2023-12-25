@@ -7,11 +7,11 @@ import Button from "@/components/button/button";
 import {REG_API} from "@/api/registration";
 import {setToken} from "@/lib/users/users";
 import {useDispatch} from "react-redux";
-import axios from "axios";
+import {useRouter} from "next/navigation";
 
 export default function Login() {
     const dispatch = useDispatch()
-
+    const router = useRouter()
     const [login, setLogin] = useState({
         email: '',
         password: '',
@@ -27,8 +27,13 @@ export default function Login() {
     const handlerSubmit = async () => {
         const data = await REG_API.login(login)
         const {access_token} = data
-        dispatch(setToken(access_token))
-        // console.log(data, 'datadata')
+        if (access_token) {
+            localStorage.setItem("access_token", access_token)
+
+            dispatch(setToken(access_token))
+            router.push('/')
+        }
+
     }
     return (
 

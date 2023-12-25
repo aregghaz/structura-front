@@ -1,6 +1,5 @@
 import styles from '../../page.module.css'
 import React from "react";
-import Input from "../../../../components/input/Input"
 import Link from "next/link";
 import Button from "@/components/button/button";
 
@@ -18,11 +17,11 @@ export default function Registration() {
 
                 <div className={styles.formDiv} style={{backgroundColor: 'white'}}>
 
-                    <div >
+                    <div>
                         <div className={styles.formText}>Регистрация завершена</div>
                         <div className={styles.formText2}>
                             ###, поздравляем вас!
-<br/>
+                            <br/>
                             Пожалуйста пройдите верификацию,
                             чтобы начать пользоваться всеми возможностями онлайн-документооборота
 

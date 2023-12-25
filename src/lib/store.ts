@@ -1,9 +1,13 @@
 import {configureStore} from '@reduxjs/toolkit'
 import usersReducer from "@/lib/users/users";
 import {TypedUseSelectorHook, useDispatch, useSelector} from 'react-redux'
+import DocumentReducer from "@/lib/document/document";
 
 export const store = configureStore({
-    reducer: {users: usersReducer},
+    reducer: {
+        users: usersReducer,
+        documents: DocumentReducer
+    },
 })
 
 
