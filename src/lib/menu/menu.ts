@@ -11,7 +11,7 @@ export interface menuState {
 // Define the initial state using that type
 const initialState: menuState = {
     menu: [],
-    loading: false,
+    loading: true,
 }
 
 export const MenuSlice = createSlice({

@@ -4,17 +4,22 @@ import styles from "./navbar.module.css"
 import {DOCUMENT_API} from "@/api/document";
 import ItemMenu from "@/components/navBar/left/item";
 import {useDispatch, useSelector} from "react-redux";
-import {getLoading, setMenu} from "@/lib/menu/menu";
+import {getLoading, setLoading, setMenu} from "@/lib/menu/menu";
 
 export default function LeftNavBar() {
     const dispatch = useDispatch()
     const loading = useSelector(getLoading)
     const getDocuments = async () => {
+        console.log('asdsaasd')
         const data: any = await DOCUMENT_API.get()
         dispatch(setMenu(data))
+        dispatch(setLoading(false))
     }
     useEffect(() => {
-        getDocuments()
+        if(loading){
+            getDocuments()
+        }
+
     }, [loading])
 
     return <div className={styles.body}>
@@ -58,7 +63,7 @@ export default function LeftNavBar() {
                // data={state}
             />
             <ItemMenu
-                id={3}
+                id={4}
                 icon={'images/trashSimple.svg'}
                 text={'Корзина'}
                /// data={state}

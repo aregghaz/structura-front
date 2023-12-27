@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, {useRef, useState} from "react";
 import {Dropdown} from "@/components/dropDown/dropDown";
 import {uploadSelect} from '@/components/data/data'
 import styles from './page.module.css'
@@ -8,28 +8,47 @@ import {setBody} from "@/lib/document/document";
 import {useDispatch, useSelector} from "react-redux";
 import {DOCUMENT_API} from "@/api/document";
 import {setLoading} from "@/lib/menu/menu";
+import PDFViewer from "@/components/pdf/pdf";
+import dynamic from "next/dynamic";
 
 export default function Upload() {
+    const hiddenFileInput = useRef(null);
+
     const dispatch = useDispatch()
-    const documentBody = useSelector((state:any) => state.documents.body)
+    const [file, setFile] = useState(false)
+    const documentBody = useSelector((state: any) => state.documents.body)
     const handlerChangeFolder = async (id: number) => {
-        console.log(id, documentBody, 'asdsa')
+
         const res = await DOCUMENT_API.upload({body: documentBody, folderId: id})
-      dispatch(setLoading(true))
+        dispatch(setLoading(true))
     }
 
-    const handleChangeBody = (e:any) => {
+    function onFileChange(event) {
+        setFile(event.target.files[0]);
+    }
+
+    const handleClick = event => {
+        hiddenFileInput.current.click();
+    };
+    const handleChangeBody = (e: any) => {
         const {name, value} = e.target;
         dispatch(setBody(value))
     };
+
+    const PDFViewer = dynamic(() => import("../../components/pdf/pdf"), {
+        ssr: false
+    });
+
     return (
         <Layout>
+
             <div className={styles.content}>
                 <div className={styles.buttonSection}>
                     <Dropdown
                         label={'основное'}
                         data={uploadSelect.firstSelect}
                         icon={'/images/pen.svg'}
+                        handlerAction={handlerChangeFolder}
                     />
                     <Dropdown
                         label={'дополнительное'}
@@ -43,28 +62,33 @@ export default function Upload() {
                         icon={'/images/userCircle.svg'}
 
                     />
+
                 </div>
                 <div className={styles.body}>
                     <div className={styles.icon_Body}>
-                        <Dropdown
+                        {file ? <><Dropdown
                             style={styles.button_body}
                             data={uploadSelect.bodySelect}
                             icon={'/images/file.svg'}
+
                             handlerAction={handlerChangeFolder}
+                        /></> : <><Dropdown
+                            style={styles.button_body}
+                            data={uploadSelect.bodySelect}
+                            icon={'/images/file.svg'}
+                            // handlerAction={handleClick}
+                            onClick={handleClick}
                         />
+                            <input
+                                type="file"
+                                onChange={onFileChange}
+                                ref={hiddenFileInput}
+                                style={{display: 'none'}} // Make the file input element invisible
+                            /></>}
+
+
                     </div>
-                    <textarea
-
-                        ///className="bg-gray-200 w-full rounded-lg shadow border p-2"
-                        // rows={10}
-                        // cols={20}
-                        placeholder="Ecrivez votre publication ici"
-                        // OnChange={setFormData}
-                        onBlur={handleChangeBody}
-                        name="body"
-                        id="pub"
-
-                    ></textarea>
+                    <PDFViewer file={file}/>
                 </div>
 
             </div>

@@ -1,3 +1,5 @@
+import React from "react";
+
 export interface IButton {
     style?: {},
     url: string,
@@ -39,7 +41,8 @@ export interface IDropDown {
     label?: string,
     icon: string,
     style?: string,
-    handlerAction?: (id:number) => void
+    handlerAction?: (id:number) => void,
+    onClick?: (event: React.MouseEvent<HTMLDivElement>) => void,
 
 }
 

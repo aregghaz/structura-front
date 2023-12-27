@@ -1,9 +1,7 @@
 .body{
-    /*width: 790px;*/
-    /*height: 910px;*/
     border-radius: 25px;
     background-color: white;
     display: flex;
-    width: 875px;
+    width: 790px;
 
 }

@@ -4,7 +4,7 @@ export const uploadSelect = {
             id: 1, label: "отправить"
         },
         {
-            id: 2, label: "удалить"
+            id: 4, label: "удалить"
         }
     ],
     bodySelect :[

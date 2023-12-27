@@ -9,8 +9,9 @@ export const Dropdown = ({
                              label,
                              icon = '',
                              style = '',
-                             handlerAction
-                         }:IDropDown) => {
+                             handlerAction,
+                             onClick,
+                         }: IDropDown) => {
     const [isOpen, setOpen] = useState(false);
     const [items, setItem] = useState(data);
     const [selectedItem, setSelectedItem] = useState(null);
@@ -23,16 +24,23 @@ export const Dropdown = ({
     }
 
     return (
-        <div className={styles.dropdown}>
-            <div className={styles.dropdown_header} onClick={toggleDropdown}>
-                {icon.length > 0 ? <Image width={25} height={25} src={icon} alt=""/> : ''}
+        <div className={styles.dropdown}  style={{borderRadius:25}}>
+            <div className={styles.dropdown_header} style={{borderRadius:25}} onClick={(event) => {
+                if (onClick) {
+                    onClick(event)
+                }else{
+                    toggleDropdown()
+                }
+            }}
+            >
+                {icon.length > 0 ? <Image width={25} height={25} src={icon}  alt=""/> : ''}
                 {label ? <span
                     className={styles.label}>{selectedItem ? items.find(item => item.id == selectedItem).label : label}</span> : ''}
                 {label && (isOpen ?
                     <Image width={10} className={styles.icon} height={10} src={'images/close.svg'} alt=""/> :
                     <Image className={styles.icon} width={10} height={10} src={'images/open.svg'} alt=""/>)}
             </div>
-            <div className={`${styles.dropdown_body} ${isOpen && styles.open}`}>
+            <div className={`${styles.dropdown_body} ${style} ${isOpen && styles.open}`}>
                 {items.map((item, index) => (
                     <div key={index} className={styles.dropdown_item} onClick={() => {
                         handleItemClick(item.id)
