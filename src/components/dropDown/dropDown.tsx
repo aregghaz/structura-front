@@ -3,6 +3,7 @@ import {useState} from "react";
 import styles from './dropDown.module.css'
 import Image from "next/image";
 import {IDropDown} from "@/types/global";
+import {string} from "prop-types";
 
 export const Dropdown = ({
                              data,
@@ -14,11 +15,11 @@ export const Dropdown = ({
                          }: IDropDown) => {
     const [isOpen, setOpen] = useState(false);
     const [items, setItem] = useState(data);
-    const [selectedItem, setSelectedItem] = useState(null);
+    const [selectedItem, setSelectedItem] = useState<number | null>(null);
 
     const toggleDropdown = () => setOpen(!isOpen);
 
-    const handleItemClick = (id) => {
+    const handleItemClick = (id:number) => {
         selectedItem == id ? setSelectedItem(null) : setSelectedItem(id);
         toggleDropdown()
     }
@@ -35,17 +36,17 @@ export const Dropdown = ({
             >
                 {icon.length > 0 ? <Image width={25} height={25} src={icon}  alt=""/> : ''}
                 {label ? <span
-                    className={styles.label}>{selectedItem ? items.find(item => item.id == selectedItem).label : label}</span> : ''}
+                    className={styles.label}>{selectedItem ? items.find(item => item.id == selectedItem)?.label : label}</span> : ''}
                 {label && (isOpen ?
                     <Image width={10} className={styles.icon} height={10} src={'images/close.svg'} alt=""/> :
                     <Image className={styles.icon} width={10} height={10} src={'images/open.svg'} alt=""/>)}
             </div>
             <div className={`${styles.dropdown_body} ${style} ${isOpen && styles.open}`}>
                 {items.map((item, index) => (
-                    <div key={index} className={styles.dropdown_item} onClick={() => {
+                    <div key={index} className={styles.dropdown_item} onClick={(event) => {
                         handleItemClick(item.id)
                         if (handlerAction) {
-                            handlerAction(item.id)
+                            handlerAction(item.id, event)
                         }
 
                     }}>

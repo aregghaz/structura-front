@@ -3,6 +3,8 @@
     flex-direction: column;
     padding: 25px;
     width: 790px;
+    border-radius: 25px;
+    background-color: white;
 }
 .buttonSection{
     display: flex;

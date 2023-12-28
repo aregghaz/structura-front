@@ -41,8 +41,26 @@ export interface IDropDown {
     label?: string,
     icon: string,
     style?: string,
-    handlerAction?: (id:number) => void,
+    handlerAction?: (id: number, event: React.MouseEvent<HTMLDivElement>) => void,
     onClick?: (event: React.MouseEvent<HTMLDivElement>) => void,
 
 }
 
+export interface IPage {
+    pageId: string
+}
+
+export interface IPdfView {
+    file: File | null
+}
+
+export interface IMailList {
+    subject: string
+    status: string
+    updated_at: string
+}
+export interface IItemMenu {
+    text: string
+    icon: string
+    id: number
+}

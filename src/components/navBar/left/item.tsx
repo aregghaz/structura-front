@@ -6,8 +6,9 @@ import {useDispatch, useSelector} from "react-redux";
 import {getLoading, getMenu, setLoading} from "@/lib/menu/menu";
 import {useRouter} from "next/navigation";
 import {pageName} from "@/types/page_name";
+import {IItemMenu} from "@/types/global";
 
-export default function ItemMenu({text, icon, id}) {
+export default function ItemMenu({text, icon, id}:IItemMenu) {
     const date = useSelector(getMenu)
     const [count, setCount] = useState(0)
     const loading = useSelector(getLoading)

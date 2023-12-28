@@ -1,27 +1,30 @@
-
-import React, {useEffect} from "react";
-import {tokenData} from "@/lib/users/users";
-import {useSelector} from "react-redux";
-import {useRouter} from "next/navigation";
+import React from "react";
 import Layout from "@/components/layout/layout";
-import axios from "axios";
+import styles from './page.module.css'
+import {pageName} from "@/types/page_name";
+import {getKeyByValue} from "@/utils/utils";
+import {Email} from "@/components/email/email";
+
 export const generateStaticParams = async ({
-                                               params: { slug },
+                                               params: {slug},
                                            }: {
     params: { slug: string };
-}): any =>  {
-    console.log(slug,'paramsparams')
+}) => {
+    console.log(slug, 'paramsparams')
     // const posts = await fetch('https://.../posts').then((res) => res.json())
 
-    return [{ slug: 'inbox' }, { slug: 'hot' }, { slug: 'sent' }, { slug: 'draft' }]
+    return [{slug: 'inbox'}, {slug: 'hot'}, {slug: 'sent'}, {slug: 'draft'}, {slug: 'important'}]
 }
-export default function Inbox({props}) {
-    console.log(props,'111111')
-
+export default function Page({params: {slug}}:{
+    params: { slug: string };
+}) {
+    const pageId = getKeyByValue(pageName, slug)
     return (
         <>
             <Layout>
-                2222
+                <div className={styles.content}>
+                       <Email pageId={pageId}/>
+                </div>
             </Layout>
         </>
     )

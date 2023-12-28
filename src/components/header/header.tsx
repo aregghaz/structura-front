@@ -22,8 +22,8 @@ export default function Header() {
         dispatch(setUserId(id))
     }
     useEffect(() => {
-        const access_token=  localStorage.getItem("access_token")
-        if (getToken.length === 0 && access_token.length === 0) {
+        const access_token =  localStorage.getItem("access_token")
+        if (getToken.length === 0 && access_token?.length === 0) {
             router.push('/auth/login')
 
         } else {

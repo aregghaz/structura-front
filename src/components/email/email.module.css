@@ -1,0 +1,59 @@
+.document {
+    display: flex;
+    flex-direction: row;
+}
+
+.document_body {
+    width: 500px;
+    border-radius: 25px;
+    background-color: white;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    justify-content: space-around;
+}
+
+.user_section {
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.subject{
+    color: #000;
+    font-family: Comfortaa;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration-line: underline;
+}
+.email_text{
+    color: #909090;
+    font-family: Comfortaa;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.email_text_underline{
+    color: #000;
+
+    font-family: Comfortaa;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-decoration-line: underline;
+}
+.more{
+    cursor: pointer;
+}
+.notes {
+    width: 280px;
+    height: 205px;
+    border-radius: 25px;
+    background-color: white;
+
+}

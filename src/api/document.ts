@@ -9,6 +9,9 @@ export const DOCUMENT_API = {
     },
     get:() =>{
         return axios.get(`${fakeUrl}/api/getCount`).then((res) => res.data)
+    },
+    getEmails:(pageId:string) =>{
+        return axios.get(`${fakeUrl}/api/emails/${pageId}`).then((res) => res.data)
     }
 
 }

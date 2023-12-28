@@ -1,13 +1,15 @@
 export const uploadSelect = {
-    firstSelect :[
+    firstSelect: [
         {
-            id: 1, label: "отправить"
+            id: 1,
+            label: "отправить"
         },
         {
-            id: 4, label: "удалить"
+            id: 4,
+            label: "удалить"
         }
     ],
-    bodySelect :[
+    bodySelect: [
         {
             id: 1, label: "добавить в важные"
         },
@@ -18,7 +20,7 @@ export const uploadSelect = {
             id: 3, label: "добавить в шаблонные"
         }
     ],
-    secondSelect :[
+    secondSelect: [
         {
             id: 1,
             label: "анализировать с AI"
