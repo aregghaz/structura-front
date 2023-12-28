@@ -19,11 +19,8 @@ export const MenuSlice = createSlice({
     // `createSlice` will infer the state type from the `initialState` argument
     initialState,
     reducers: {
-        setMenu: (state, action: PayloadAction<{ id: number, count: number }>): void => {
-            state.menu = [
-                ...state.menu,
-                action.payload
-            ]
+        setMenu: (state, action: PayloadAction<Array<{ id: number, count: number }>>): void => {
+            state.menu = action.payload
         },
         setLoading: (state, action: PayloadAction<boolean>): void => {
             state.loading = action.payload

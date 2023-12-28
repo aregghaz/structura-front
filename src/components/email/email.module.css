@@ -1,6 +1,6 @@
 .document {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 .document_body {
@@ -49,6 +49,11 @@
 }
 .more{
     cursor: pointer;
+}
+.document_item{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
 }
 .notes {
     width: 280px;
