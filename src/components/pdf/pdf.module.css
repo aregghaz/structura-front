@@ -1,0 +1,7 @@
+.canvas {
+    position: relative;
+    display: flex;
+    width: 740px!important;
+    margin: 0 auto;
+    height:100%!important;
+}

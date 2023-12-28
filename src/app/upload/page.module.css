@@ -1,0 +1,40 @@
+.content{
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    width: 790px;
+    border-radius: 25px;
+    background-color: white;
+}
+.buttonSection{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 60px;
+    margin-bottom: 25px;
+    z-index: 1;
+    
+}
+.buttonSection div{
+    margin-left: 6px;
+
+}
+.body{
+    display: flex;
+    border-radius: 5px;
+    background: #F5F5F5;
+}
+.icon_Body{
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    z-index: 1;
+    left: 75rem;
+    top: 17rem;
+}
+.button_body{
+    border-radius: 25px;
+    width: 240px;
+    margin-top: 20px;
+
+}
