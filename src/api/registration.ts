@@ -1,8 +1,7 @@
 import {IUser} from "@/types/global";
 import axios from "axios";
+import {fakeUrl} from "@/utils/utils";
 
-const fakeUrl = 'http://127.0.0.1:8000'
-////const fakeUrl = 'http://back.speedshop.am'
 export const REG_API = {
     registration: (body: IUser) => {
         return axios.post(`${fakeUrl}/api/auth/registration`, body).then((res) => res.data)
