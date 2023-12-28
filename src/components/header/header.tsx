@@ -8,7 +8,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {setUserId, tokenData} from "@/lib/users/users";
 import {useRouter} from "next/navigation";
 import axios from "axios";
-import {DOCUMENT_API} from "@/api/document";
 
 export default function Header() {
     const getToken = useSelector(tokenData)
@@ -17,15 +16,17 @@ export default function Header() {
 //
     const getUser = async () => {
         const data: any = await REG_API.getUser()
-        console.log(data,'datadata')
+        console.log(data, 'datadata')
         let id = data.id
         dispatch(setUserId(id))
     }
     useEffect(() => {
-        const access_token =  localStorage.getItem("access_token")
+        const access_token = localStorage.getItem("access_token")
         if (getToken.length === 0 && access_token?.length === 0) {
             router.push('/auth/login')
 
+        } else if (!access_token) {
+            router.push('/auth/login')
         } else {
             axios.defaults.headers.common["Authorization"] = "Bearer " + access_token;
             getUser();
@@ -75,7 +76,7 @@ export default function Header() {
                     <Button
                         className={styles.button}
                         url={'/search'}
-                        label={false ? 'найти документ по похожим словам' : (`найти документ по похожим словам`).substring(0, 3)+`...`}
+                        label={false ? 'найти документ по похожим словам' : (`найти документ по похожим словам`).substring(0, 3) + `...`}
 
                     />
                 </div>
