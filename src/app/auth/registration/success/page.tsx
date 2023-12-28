@@ -1,9 +1,14 @@
+"use client"
 import styles from '../../page.module.css'
 import React from "react";
 import Link from "next/link";
 import Button from "@/components/button/button";
+import {useSelector} from "react-redux";
+import {userData} from "@/lib/users/users";
 
 export default function Registration() {
+    const regData = useSelector(userData)
+
     return (
         <>
             <div style={{textAlign: 'center', paddingTop: 30, paddingBottom: 60}}>
@@ -20,12 +25,10 @@ export default function Registration() {
                     <div>
                         <div className={styles.formText}>Регистрация завершена</div>
                         <div className={styles.formText2}>
-                            ###, поздравляем вас!
+                            {regData.name} {regData.surname}, поздравляем вас!
                             <br/>
                             Пожалуйста пройдите верификацию,
                             чтобы начать пользоваться всеми возможностями онлайн-документооборота
-
-
                         </div>
                     </div>
 
@@ -42,7 +45,7 @@ export default function Registration() {
                             <Button
                                 className={styles.aut_btn_text}
                                 label={'продолжить'}
-                                url={`/`}
+                                url={`/auth/login`}
                             />
 
                         </div>
