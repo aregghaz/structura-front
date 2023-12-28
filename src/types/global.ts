@@ -31,7 +31,7 @@ export interface IUser {
 }
 
 export interface IDocument {
-    body: string;
+    body: any;
     folderId: number;
 
 }

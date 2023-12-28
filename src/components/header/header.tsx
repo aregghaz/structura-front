@@ -47,10 +47,10 @@ export default function Header() {
         <div className={styles.button_div}>
             <div className={styles.create}>
                 <div>
-                    <Image src={'./images/create.svg'} width={25} height={25} alt={'create'}/>
+                    <Image src={'/images/create.svg'} width={25} height={25} alt={'create'}/>
                     <Button
                         className={styles.button}
-                        url={'create'}
+                        url={'/create'}
                         label={'создать документ'}
 
                     />
@@ -58,10 +58,10 @@ export default function Header() {
             </div>
             <div className={styles.create}>
                 <div>
-                    <Image src={'./images/upload.svg'} width={25} height={25} alt={'upload'}/>
+                    <Image src={'/images/upload.svg'} width={25} height={25} alt={'upload'}/>
                     <Button
                         className={styles.button}
-                        url={'upload'}
+                        url={'/upload'}
                         label={'загрузить документ'}
 
                     />
@@ -70,11 +70,11 @@ export default function Header() {
             </div>
             <div className={styles.search}>
                 <div>
-                    <Image src={'./images/search.svg'} width={25} height={25} alt={'upload'}/>
+                    <Image src={'/images/search.svg'} width={25} height={25} alt={'upload'}/>
 
                     <Button
                         className={styles.button}
-                        url={'search'}
+                        url={'/search'}
                         label={false ? 'найти документ по похожим словам' : (`найти документ по похожим словам`).substring(0, 3)+`...`}
 
                     />

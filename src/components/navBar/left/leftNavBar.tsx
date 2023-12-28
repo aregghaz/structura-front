@@ -28,43 +28,43 @@ export default function LeftNavBar() {
         <div className={styles.menuList}>
             <ItemMenu
                 id={10}
-                icon={'images/shareFat.svg'}
+                icon={'/images/shareFat.svg'}
                 text={'Входящие'}
                // data={state}
             />
             <ItemMenu
                 id={11}
-                icon={'images/fireSimple.svg'}
+                icon={'/images/fireSimple.svg'}
                 text={'Горящие'}
                // data={state}
             />
             <ItemMenu
-                id={11}
-                icon={'images/vector.svg'}
+                id={12}
+                icon={'/images/vector.svg'}
                 text={'Исходящие'}
               //  data={state}
             />
             <ItemMenu
                 id={1}
-                icon={'images/star.svg'}
+                icon={'/images/star.svg'}
                 text={'Важные'}
               //  data={state}
             />
             <ItemMenu
                 id={2}
-                icon={'images/clipboard.svg'}
+                icon={'/images/clipboard.svg'}
                 text={'Черновые'}
                // data={state}
             />
             <ItemMenu
                 id={3}
-                icon={'images/vector2.svg'}
+                icon={'/images/vector2.svg'}
                 text={'Шаблонные'}
                // data={state}
             />
             <ItemMenu
                 id={4}
-                icon={'images/trashSimple.svg'}
+                icon={'/images/trashSimple.svg'}
                 text={'Корзина'}
                /// data={state}
             />

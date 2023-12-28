@@ -10,16 +10,21 @@ import {DOCUMENT_API} from "@/api/document";
 import {setLoading} from "@/lib/menu/menu";
 import PDFViewer from "@/components/pdf/pdf";
 import dynamic from "next/dynamic";
-
+// const PDFViewer = dynamic(() => import("../../components/pdf/pdf"), {
+//     ssr: false
+// });
 export default function Upload() {
     const hiddenFileInput = useRef(null);
-
     const dispatch = useDispatch()
     const [file, setFile] = useState(false)
     const documentBody = useSelector((state: any) => state.documents.body)
     const handlerChangeFolder = async (id: number) => {
+        console.log(file,'file')
+        const formdata = new FormData();
+        formdata.append("pdf",file);
+        formdata.append("folderId", id);
 
-        const res = await DOCUMENT_API.upload({body: documentBody, folderId: id})
+        const res = await DOCUMENT_API.upload(formdata)
         dispatch(setLoading(true))
     }
 
@@ -35,9 +40,7 @@ export default function Upload() {
         dispatch(setBody(value))
     };
 
-    const PDFViewer = dynamic(() => import("../../components/pdf/pdf"), {
-        ssr: false
-    });
+
 
     return (
         <Layout>
