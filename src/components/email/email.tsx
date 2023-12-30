@@ -6,6 +6,7 @@ import {DOCUMENT_API} from "@/api/document";
 import {timestampToDate} from "@/utils/utils";
 import {documentStatus} from "@/types/page_name";
 import Image from "next/image";
+import EmailModal from "@/components/modal/emailModal";
 
 export const Email = ({pageId}: IPage) => {
     const local = 'ru'
@@ -19,9 +20,10 @@ export const Email = ({pageId}: IPage) => {
         getData()
     }, [])
 
+
     return state.length > 0 ? (<>
         <div className={styles.document}>
-            {state.map((item: IMailList, index:number) => {
+            {state.map((item: IMailList, index: number) => {
                 return (<div key={index} className={styles.document_item}>
                     <div className={styles.document_body}>
                         <span className={styles.user_section}>
@@ -32,7 +34,7 @@ export const Email = ({pageId}: IPage) => {
                                 <Image src={'/images/userCircle.svg'} width={35} height={35} alt={'userCircle'}/>
                                 <Image src={'/images/userCircle.svg'} width={35} height={35} alt={'userCircle'}/>
                             </span>
-                            <span className={styles.more}>...</span>
+                        <EmailModal/>
                         </span>
                         <span className={styles.subject}>{item.subject}</span>
                         <span style={{

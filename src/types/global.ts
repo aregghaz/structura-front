@@ -64,3 +64,7 @@ export interface IItemMenu {
     icon: string
     id: number
 }
+export interface IModalEmail{
+    showModal:boolean,
+    setShowModal:(showModal:boolean)=>void
+}

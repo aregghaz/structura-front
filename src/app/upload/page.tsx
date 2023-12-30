@@ -4,49 +4,58 @@ import {Dropdown} from "@/components/dropDown/dropDown";
 import {uploadSelect} from '@/components/data/data'
 import styles from './page.module.css'
 import Layout from "@/components/layout/layout";
-import {setBody} from "@/lib/document/document";
 import {useDispatch, useSelector} from "react-redux";
-import {DOCUMENT_API} from "@/api/document";
 import {setLoading} from "@/lib/menu/menu";
 import PDFViewer from "@/components/pdf/pdf";
+import Modal from "@/components/modal/modal";
+import {DOCUMENT_API} from "@/api/document";
+import {documentId, setDocumentId} from "@/lib/document/document";
 // const PDFViewer = dynamic(() => import("../../components/pdf/pdf"), {
 //     ssr: false
 // });
 export default function Upload() {
     const hiddenFileInput = useRef<HTMLInputElement | null>(null);
     const dispatch = useDispatch()
+    const docId = useSelector(documentId)
     const [file, setFile] = useState<File | null>(null)
+    const [showModal, setShowModal] = useState(false)
+    // const handlerCreate = async () => {
+    //     const data = await DOCUMENT_API.create()
+    //     console.log(data,'datadata')
+    // }
+    // useEffect(() => {
+    //     handlerCreate()
+    // }, [])
     const documentBody = useSelector((state: any) => state.documents.body)
     const handlerChangeFolder = async (id: number, event: React.MouseEvent<HTMLDivElement>) => {
-        event.preventDefault();
-        if (file && id) {
-            const formData = new FormData();
-            formData.append("folderId", id as unknown as string);
-            formData.append("pdf", file as unknown as Blob);
+        if (id && docId !== 0) {
+            await DOCUMENT_API.changeFolder(docId, id)
+            dispatch(setLoading(true))
+        }
+    }
+    const handlerAddPeople = async (id: number, event: React.MouseEvent<HTMLDivElement>) => {
+        setShowModal(!showModal)
+    }
 
-            await DOCUMENT_API.upload(formData)
+    async function onFileChange(event: React.ChangeEvent<HTMLInputElement>) {
+        if (event.target?.files) {
+            const file = event.target?.files[0];
+            setFile(file);
+            const formData = new FormData();
+            formData.append("pdf", file as unknown as Blob);
+            const data: any = await DOCUMENT_API.upload(formData)
+            const docId = data.id
+            dispatch(setDocumentId(docId))
             dispatch(setLoading(true))
         }
 
     }
 
-    function onFileChange(event: React.ChangeEvent<HTMLInputElement>) {
-        if (event.target?.files) {
-            const file = event.target?.files[0];
-            setFile(file);
-        }
-
-    }
-
     const handleClick = () => {
-        if(hiddenFileInput.current){
+        if (hiddenFileInput.current) {
             hiddenFileInput.current.click();
         }
 
-    };
-    const handleChangeBody = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const {name, value} = e.target;
-        dispatch(setBody(value))
     };
 
 
@@ -70,9 +79,9 @@ export default function Upload() {
                     />
                     <Dropdown
                         label={'стороны в этом документе'}
-                        data={uploadSelect.secondSelect}
+                        data={uploadSelect.thirdSelect}
                         icon={'/images/userCircle.svg'}
-                        handlerAction={handlerChangeFolder}
+                        handlerAction={handlerAddPeople}
 
                     />
 
@@ -103,7 +112,7 @@ export default function Upload() {
                     </div>
                     <PDFViewer file={file}/>
                 </div>
-
+                <Modal setShowModal={setShowModal} showModal={showModal}/>
             </div>
 
 

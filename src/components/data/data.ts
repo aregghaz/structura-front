@@ -53,5 +53,15 @@ export const uploadSelect = {
             id: 8,
             label: "открыть на весь экран"
         }
-    ]
+    ],
+    thirdSelect :[
+        {
+            id:1,
+            label: 'открыть чат'
+        } ,
+        {
+            id:2,
+            label: 'пригласить участника'
+        }
+    ],
 }

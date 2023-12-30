@@ -62,3 +62,10 @@
     background-color: white;
 
 }
+.modal_content{
+    position: absolute;
+    left: 45%;
+    width: 170px;
+    height: 85px;
+    background-color: white;
+}
