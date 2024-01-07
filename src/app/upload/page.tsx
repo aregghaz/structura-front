@@ -1,5 +1,5 @@
 "use client";
-import React, {useRef, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {Dropdown} from "@/components/dropDown/dropDown";
 import {uploadSelect} from '@/components/data/data'
 import styles from './page.module.css'
@@ -9,7 +9,8 @@ import {setLoading} from "@/lib/menu/menu";
 import PDFViewer from "@/components/pdf/pdf";
 import Modal from "@/components/modal/modal";
 import {DOCUMENT_API} from "@/api/document";
-import {documentId, setDocumentId} from "@/lib/document/document";
+import {documentId, setDocumentId, setRefreshStatus} from "@/lib/document/document";
+import {AsyncDropDown} from "@/components/asyncDropDown/AsyncDropDown";
 // const PDFViewer = dynamic(() => import("../../components/pdf/pdf"), {
 //     ssr: false
 // });
@@ -17,15 +18,24 @@ export default function Upload() {
     const hiddenFileInput = useRef<HTMLInputElement | null>(null);
     const dispatch = useDispatch()
     const docId = useSelector(documentId)
+    const getRefresh = useSelector(setRefreshStatus)
+    const [open, setOpen] = useState(false)
     const [file, setFile] = useState<File | null>(null)
+    const [userData, setUserData] = useState<any>([])
     const [showModal, setShowModal] = useState(false)
-    // const handlerCreate = async () => {
-    //     const data = await DOCUMENT_API.create()
-    //     console.log(data,'datadata')
-    // }
-    // useEffect(() => {
-    //     handlerCreate()
-    // }, [])
+    const handlerGetDocInfo = async () => {
+        if(docId !== 0){
+            const data = await DOCUMENT_API.getDocUsers(docId)
+            console.log(data,'datadata')
+            setUserData(data)
+            setOpen(!open)
+        }
+    }
+    useEffect(() => {
+        if(getRefresh){
+            handlerGetDocInfo()
+        }
+    }, [getRefresh])
     const documentBody = useSelector((state: any) => state.documents.body)
     const handlerChangeFolder = async (id: number, event: React.MouseEvent<HTMLDivElement>) => {
         if (id && docId !== 0) {
@@ -34,6 +44,8 @@ export default function Upload() {
         }
     }
     const handlerAddPeople = async (id: number, event: React.MouseEvent<HTMLDivElement>) => {
+        const data = await DOCUMENT_API.getDocUsers(docId)
+        console.log(data,'datadata')
         setShowModal(!showModal)
     }
 
@@ -77,7 +89,11 @@ export default function Upload() {
                         handlerAction={handlerChangeFolder}
 
                     />
-                    <Dropdown
+                    <AsyncDropDown
+                        onClick={handlerGetDocInfo}
+                        open={open}
+                        userData={userData}
+                        setOpen={setOpen}
                         label={'стороны в этом документе'}
                         data={uploadSelect.thirdSelect}
                         icon={'/images/userCircle.svg'}

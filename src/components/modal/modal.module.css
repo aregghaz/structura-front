@@ -1,6 +1,5 @@
 .modal_content {
     width: 400px;
-    height: 200px;
     top: 405px;
     left: 40%;
     position: absolute;
@@ -38,6 +37,12 @@
     display: flex;
     flex-direction: row;
 }
+.button_section_type{
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+}
+
 .button{
     margin-top: 30px;
     background-color: black;
@@ -56,4 +61,10 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+}
+.button_section_type .button{
+    text-align: start;
+    justify-content: start;
+    align-content: start;
+    cursor: pointer;
 }

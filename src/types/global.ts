@@ -20,6 +20,7 @@ export interface IInput {
 }
 
 export interface IUser {
+    id:number,
     email: string;
     name: string;
     surname: string;
@@ -46,6 +47,25 @@ export interface IDropDown {
 
 }
 
+export interface IAsyncDropDown {
+    open: boolean,
+    setOpen: (prevState: boolean) => void,
+    data: Array<{ id: number, label: string }>,
+    userData: Array<IUserInfo>,
+    label?: string,
+    icon: string,
+    style?: string,
+    handlerAction?: (id: number, event: React.MouseEvent<HTMLDivElement>) => void,
+    onClick: () => void,
+
+}
+
+export interface IUserInfo {
+    id: number
+    users :IUser
+    user_status:string,
+}
+
 export interface IPage {
     pageId: string
 }
@@ -59,12 +79,14 @@ export interface IMailList {
     status: string
     updated_at: string
 }
+
 export interface IItemMenu {
     text: string
     icon: string
     id: number
 }
-export interface IModalEmail{
-    showModal:boolean,
-    setShowModal:(showModal:boolean)=>void
+
+export interface IModalEmail {
+    showModal: boolean,
+    setShowModal: (showModal: boolean) => void
 }

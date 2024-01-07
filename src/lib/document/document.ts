@@ -4,6 +4,7 @@ import type {RootState} from '../store'
 // Define a type for the slice state
 export interface DocState {
     body: string,
+    refresh:boolean
     document: {
         folder_id: number
         id: number
@@ -14,6 +15,7 @@ export interface DocState {
 // Define the initial state using that type
 const initialState: DocState = {
     body: '',
+    refresh:false,
     document: {
         folder_id: 0,
         id: 0,
@@ -33,6 +35,9 @@ export const DocumentSlice = createSlice({
         setDocument: (state, action: PayloadAction<any>) => {
             state.document = action.payload
         },
+        setRefresh: (state, action: PayloadAction<any>) => {
+            state.refresh = action.payload
+        },
         setDocumentId: (state, action:PayloadAction<any>) => {
             state.document = {
                 ...state.document,
@@ -42,11 +47,12 @@ export const DocumentSlice = createSlice({
     }
 })
 
-export const {setBody, setDocumentId} = DocumentSlice.actions
+export const {setBody, setDocumentId,setRefresh} = DocumentSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type
 export const documentBody = (state: RootState) => state.documents.body
 export const documentId = (state: RootState) => state.documents.document.id
+export const setRefreshStatus = (state: RootState) => state.documents.refresh
 
 
 export default DocumentSlice.reducer

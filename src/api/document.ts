@@ -21,8 +21,11 @@ export const DOCUMENT_API = {
     changeFolder:(id:number, docId:number) =>{
         return axios.get(`${fakeUrl}/api/changeFolder/${id}/${docId}`).then((res) => res.data)
     },
-    sendEmail:(email:string,docId:number) =>{
-        return axios.post(`${fakeUrl}/api/send-mail`,{email:email,docId:docId}).then((res) => res.data)
+    sendEmail:(email:string,docId:number,userType:number) =>{
+        return axios.post(`${fakeUrl}/api/send-mail`,{email:email,docId:docId,userType:userType}).then((res) => res.data)
+    },
+    getDocUsers:(docId:number) =>{
+        return axios.post(`${fakeUrl}/api/get-email-info`,{docId:docId}).then((res) => res.data)
     },
 
 
