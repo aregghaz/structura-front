@@ -18,11 +18,13 @@ const initialState: UserState = {
         email: '',
         name: '',
         surname: '',
+        status:'',
         fatherName: '',
         country: '',
         passport: '',
         password: 'admin',
         dob: '',
+        id: 0,
     }
 }
 

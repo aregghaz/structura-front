@@ -24,15 +24,52 @@ export const Email = ({pageId}: IPage) => {
     return state.length > 0 ? (<>
         <div className={styles.document}>
             {state.map((item: IMailList, index: number) => {
+                console.log(item, '111')
                 return (<div key={index} className={styles.document_item}>
                     <div className={styles.document_body}>
                         <span className={styles.user_section}>
-                            <span>
-                                <Image src={'/images/userCircle.svg'} width={35} height={35} alt={'userCircle'}/>
-                                <Image src={'/images/userCircle.svg'} width={35} height={35} alt={'userCircle'}/>
-                                <Image src={'/images/userCircle.svg'} width={35} height={35} alt={'userCircle'}/>
-                                <Image src={'/images/userCircle.svg'} width={35} height={35} alt={'userCircle'}/>
-                                <Image src={'/images/userCircle.svg'} width={35} height={35} alt={'userCircle'}/>
+                           <span>
+                                {item.email_users.map((item, index) => {
+                                    if(item.user_status === 'my' || item.user_status === 'my-third'){
+                                        if (item.users.status === "verified") {
+                                            if (item.status !== 'not-signed') {
+                                                return (
+                                                    <Image key={index} src={'/images/signUser.svg'} width={35} height={35}
+                                                           alt={'userCircle'}/>)
+
+                                            } else {
+                                                return (
+                                                    <Image key={index} src={'/images/verified.svg'} width={35} height={35}
+                                                           alt={'userCircle'}/>)
+                                            }
+                                        } else {
+                                            return (<Image key={index} src={'/images/userCircle.svg'} width={35} height={35}
+                                                           alt={'userCircle'}/>)
+                                        }
+                                    }
+                                })}
+                               &nbsp;
+                               &nbsp;
+                               &nbsp;
+                               {item.email_users.map((item, index) => {
+                                   if(item.user_status === "other" || item.user_status === "other-third"){
+                                        if (item.users.status === "verified") {
+                                            if (item.status !== 'not-signed') {
+                                                return (
+                                                    <Image key={index} src={'/images/signUser.svg'} width={35} height={35}
+                                                           alt={'userCircle'}/>)
+
+                                            } else {
+                                                return (
+                                                    <Image key={index} src={'/images/verified.svg'} width={35} height={35}
+                                                           alt={'userCircle'}/>)
+                                            }
+                                        } else {
+                                            return (<Image key={index} src={'/images/userCircle.svg'} width={35} height={35}
+                                                           alt={'userCircle'}/>)
+                                        }
+                                    }
+                                })}
                             </span>
                         <EmailModal/>
                         </span>

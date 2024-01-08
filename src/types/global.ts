@@ -29,6 +29,7 @@ export interface IUser {
     passport: string;
     password: string;
     dob: string;
+    status:string;
 }
 
 export interface IDocument {
@@ -78,6 +79,7 @@ export interface IMailList {
     subject: string
     status: string
     updated_at: string
+    email_users: Array<IUsersEmails>
 }
 
 export interface IItemMenu {
@@ -89,4 +91,10 @@ export interface IItemMenu {
 export interface IModalEmail {
     showModal: boolean,
     setShowModal: (showModal: boolean) => void
+}
+export interface IUsersEmails {
+    status:string,
+    user_status:string,
+    users: IUser,
+
 }

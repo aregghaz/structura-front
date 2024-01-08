@@ -13,7 +13,7 @@ export const generateStaticParams = async ({
     console.log(slug, 'paramsparams')
     // const posts = await fetch('https://.../posts').then((res) => res.json())
 
-    return [{slug: 'inbox'}, {slug: 'hot'}, {slug: 'sent'}, {slug: 'draft'}, {slug: 'important'}]
+    return [{slug: 'inbox'}, {slug: 'hot'}, {slug: 'sent'}, {slug: 'draft'}, {slug: 'important'}, {slug: 'template'}]
 }
 export default function Page({params: {slug}}:{
     params: { slug: string };
