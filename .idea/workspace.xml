@@ -8,12 +8,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c514b944-f18c-4f44-bc94-7d5ca3b00034" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/images/signUser.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/verified.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/document/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/page/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page/[slug]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/document.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/document.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/document/[id]/page.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/email/email.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/email/email.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/users/users.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/users/users.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modal/emailModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal/emailModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/navBar/left/item.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/navBar/left/item.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pdf/pdf.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pdf/pdf.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/types/global.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/global.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,22 +43,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/aregghazaryan/Desktop/projects/structura-front/src/components/asyncDropDown",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "/Users/aregghazaryan/Desktop/projects/structura-front/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/aregghazaryan/Desktop/projects/structura-front/src/components/asyncDropDown&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/aregghazaryan/Desktop/projects/structura-front/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/components/asyncDropDown" />
@@ -66,11 +68,11 @@
       <recent name="$PROJECT_DIR$/src/lib/menu" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/app/document/[id]" />
-      <recent name="$PROJECT_DIR$/src/app/document/[id]/[document]" />
       <recent name="$PROJECT_DIR$/src/app/document" />
-      <recent name="$PROJECT_DIR$/src/app/page/[slug]/[folder]" />
-      <recent name="$PROJECT_DIR$/src/app/page" />
+      <recent name="$PROJECT_DIR$/src/app" />
+      <recent name="$PROJECT_DIR$/src/app/pages/document/[id]" />
+      <recent name="$PROJECT_DIR$/src/app/pages/document" />
+      <recent name="$PROJECT_DIR$/src/app/pages" />
     </key>
   </component>
   <component name="RunManager" selected="npm.dev">
@@ -125,7 +127,7 @@
       <workItem from="1703841195090" duration="9107000" />
       <workItem from="1703914238026" duration="5553000" />
       <workItem from="1704607904018" duration="4554000" />
-      <workItem from="1704621037156" duration="7126000" />
+      <workItem from="1704621037156" duration="15048000" />
     </task>
     <servers />
   </component>

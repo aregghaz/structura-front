@@ -16,7 +16,7 @@ export default function ItemMenu({text, icon, id}: IItemMenu) {
     const router = useRouter();
 
     useEffect(() => {
-        console.log(date, '23123')
+       /// console.log(date, '23123')
         date.map((item) => {
             console.log(item.id,id,'item')
             if (item.id === id) {

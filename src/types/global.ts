@@ -76,6 +76,7 @@ export interface IPdfView {
 }
 
 export interface IMailList {
+    id:number,
     subject: string
     status: string
     updated_at: string
