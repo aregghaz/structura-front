@@ -7,17 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c514b944-f18c-4f44-bc94-7d5ca3b00034" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/app/document/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/document.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/document.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/document/[id]/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/email/email.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/email/email.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modal/emailModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal/emailModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/navBar/left/item.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/navBar/left/item.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pdf/pdf.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pdf/pdf.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/global.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/global.ts" afterDir="false" />
-    </list>
+    <list default="true" id="c514b944-f18c-4f44-bc94-7d5ca3b00034" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -128,6 +118,7 @@
       <workItem from="1703914238026" duration="5553000" />
       <workItem from="1704607904018" duration="4554000" />
       <workItem from="1704621037156" duration="15048000" />
+      <workItem from="1704738635015" duration="401000" />
     </task>
     <servers />
   </component>
