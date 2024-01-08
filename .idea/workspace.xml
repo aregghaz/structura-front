@@ -7,7 +7,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c514b944-f18c-4f44-bc94-7d5ca3b00034" name="Changes" comment="" />
+    <list default="true" id="70b0af2e-4c7f-4223-9414-d12ff1d5cb6a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/components/pdf/pdf.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pdf/pdf.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

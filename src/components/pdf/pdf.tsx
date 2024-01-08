@@ -4,7 +4,7 @@ import styles from './pdf.module.css'
 import {IPdfView} from "@/types/global";
 import {fakeUrl} from "@/utils/utils";
 
-pdfjs.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';;
+pdfjs.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
 export default function PDFViewer({file}:IPdfView) {
 
@@ -21,7 +21,7 @@ export default function PDFViewer({file}:IPdfView) {
         <div>
 
             <div style={{ overflow: "hidden", width:740}}>
-                <Document file={{url: `${fakeUrl}`}}   onLoadSuccess={onDocumentLoadSuccess}>
+                <Document file={file}   onLoadSuccess={onDocumentLoadSuccess}>
                     {Array.from({ length: numPages }, (_, index) => (
                         <Page
                             width={740}
