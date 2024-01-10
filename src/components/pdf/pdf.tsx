@@ -6,7 +6,7 @@ import {fakeUrl} from "@/utils/utils";
 
 pdfjs.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
-export default function PDFViewer({file}:IPdfView) {
+export default function PDFViewer({file}:any) {
 
     const [numPages, setNumPages] = useState<number>(0);
 

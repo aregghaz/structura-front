@@ -13,5 +13,20 @@ export const timestampToDate = (date: Date | string) => {
     return `${day}.${monthFormatted}.${year}`
 }
 
-//export const fakeUrl = 'http://127.0.0.1:8000'
-export const fakeUrl = 'http://back.speedshop.am'
+export const statusUser = (status:string) =>{
+    switch (status){
+        case "not-verified":
+            return 1
+        case  "verified":
+            return 2
+        case 'not-signed':
+            return  3
+        default:
+            return 0
+
+    }
+}
+
+
+export const fakeUrl = 'http://127.0.0.1:8000'
+//export const fakeUrl = 'http://back.speedshop.am'

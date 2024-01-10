@@ -65,6 +65,7 @@ export interface IUserInfo {
     id: number
     users :IUser
     user_status:string,
+    status:string,
 }
 
 export interface IPage {
@@ -74,7 +75,10 @@ export interface IPage {
 export interface IPdfView {
     file: File | null
 }
-
+export interface IAttacment{
+    file_name:string,
+    email_id:string
+}
 export interface IMailList {
     id:number,
     subject: string
@@ -94,6 +98,7 @@ export interface IModalEmail {
     setShowModal: (showModal: boolean) => void
 }
 export interface IUsersEmails {
+    id:number,
     status:string,
     user_status:string,
     users: IUser,

@@ -65,3 +65,13 @@
 .icon.open {
     transform: rotate(90deg);
 }
+.opt_grup{
+
+    margin: 10px 45px!important;
+    color: #000;
+    font-family: Comfortaa;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}

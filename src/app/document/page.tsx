@@ -8,8 +8,10 @@ import {uploadSelect} from "@/components/data/data";
 import {AsyncDropDown} from "@/components/asyncDropDown/AsyncDropDown";
 import PDFViewer from "@/components/pdf/pdf";
 import Modal from "@/components/modal/modal";
-import {useSelector} from "react-redux";
-import {documentId, setRefreshStatus} from "@/lib/document/document";
+import {useDispatch, useSelector} from "react-redux";
+import {documentId, setDocumentId, setRefreshStatus} from "@/lib/document/document";
+import {fakeUrl} from "@/utils/utils";
+import {IAttacment} from "@/types/global";
 
 export const dynamicParams = true // true | false,
 // export const dynamic = 'force-dynamic'
@@ -28,9 +30,10 @@ export default  function Page(cnt:any) {
     const docId = useSelector(documentId)
     const getRefresh = useSelector(setRefreshStatus)
     const [open, setOpen] = useState(false)
-    const [file, setFile] = useState<File | null>(null)
+    const [file, setFile] = useState<IAttacment | null>(null)
     const [userData, setUserData] = useState<any>([])
     const [showModal, setShowModal] = useState(false)
+    const dispatch = useDispatch();
      const getEmailById = async (id: number) => {
         return await DOCUMENT_API.getEmailsId(id);
     }
@@ -41,8 +44,9 @@ export default  function Page(cnt:any) {
             const data:any = await getEmailById(searchParams.id)
             console.log(data,'11111111')
             if(data){
-                console.log(data?.attachments[0].file_content,'3324')
-                setFile(data?.attachments[0].file_content)
+                dispatch(setDocumentId(data.id))
+                console.log(data?.attachments[0].name,'3324')
+                setFile(data?.attachments[0])
             }
         })();
         return () => {
@@ -74,7 +78,6 @@ export default  function Page(cnt:any) {
     }
     const handlerAddPeople = async (id: number, event: React.MouseEvent<HTMLDivElement>) => {
         const data = await DOCUMENT_API.getDocUsers(docId)
-        console.log(data,'datadata')
         setShowModal(!showModal)
     }
     // const handleClick = () => {
@@ -117,30 +120,14 @@ export default  function Page(cnt:any) {
                     </div>
                     <div className={styles.body}>
                         <div className={styles.icon_Body}>
-                            {file ? <><Dropdown
+                            <Dropdown
                                 style={styles.button_body}
                                 data={uploadSelect.bodySelect}
                                 icon={'/images/file.svg'}
                                 handlerAction={handlerChangeFolder}
-                            /></> : <>
-                                <Dropdown
-                                    style={styles.button_body}
-                                    data={uploadSelect.bodySelect}
-                                    icon={'/images/file.svg'}
-                                    // handlerAction={handleClick}
-                                  ///  onClick={handleClick}
-                                />
-                                {/*<input*/}
-                                {/*    type="file"*/}
-                                {/*    onChange={onFileChange}*/}
-                                {/*    ref={hiddenFileInput}*/}
-                                {/*    style={{display: 'none'}} // Make the file input element invisible*/}
-                                {/*/>*/}
-                            </>}
-
-
+                            />
                         </div>
-                        <PDFViewer file={file}/>
+                        {file && <PDFViewer file={{url: `${fakeUrl}/storage/documents/${file.email_id}/${file.file_name}`}}/>}
                     </div>
                     <Modal setShowModal={setShowModal} showModal={showModal}/>
                 </div>
