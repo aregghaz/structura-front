@@ -12,7 +12,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {documentId, setDocumentId, setRefreshStatus} from "@/lib/document/document";
 import {fakeUrl} from "@/utils/utils";
 import {IAttacment} from "@/types/global";
-export const dynamic = 'force-static';
+export const dynamic = 'force-static'
 
 export const dynamicParams = true // true | false,
 // export const dynamic = 'force-dynamic'
@@ -35,6 +35,7 @@ export default  function Page(cnt:any) {
     const [userData, setUserData] = useState<any>([])
     const [showModal, setShowModal] = useState(false)
     const dispatch = useDispatch();
+    dispatch(setDocumentId(searchParams.id))
      const getEmailById = async (id: number) => {
         return await DOCUMENT_API.getEmailsId(id);
     }
@@ -42,22 +43,21 @@ export default  function Page(cnt:any) {
 
     useEffect(() => {
         (async () => {
-            if(searchParams.id){
-                const data:any = await getEmailById(searchParams.id)
-                console.log(data,'11111111')
+             if(docId){
+                const data:any = await getEmailById(docId)
+                console.log(docId,'11111111')
                 if(data){
-                    dispatch(setDocumentId(data.id))
                     console.log(data?.attachments[0].name,'3324')
                     setFile(data?.attachments[0])
                 }
-            }
+             }
 
         })();
         return () => {
             ///   homeAPI.cancelRequest();
         };
 
-    }, [searchParams.id]);
+    }, [docId]);
     // useEffect(() => {
     //     if(getRefresh){
     //        const data:any =  handlerGetDocInfo()
