@@ -41,20 +41,22 @@ export default  function Page(cnt:any) {
 
     useEffect(() => {
         (async () => {
-            console.log(searchParams.id,'2123213')
-            const data:any = await getEmailById(searchParams.id)
-            console.log(data,'11111111')
-            if(data){
-                dispatch(setDocumentId(data.id))
-                console.log(data?.attachments[0].name,'3324')
-                setFile(data?.attachments[0])
+            if(searchParams.id){
+                const data:any = await getEmailById(searchParams.id)
+                console.log(data,'11111111')
+                if(data){
+                    dispatch(setDocumentId(data.id))
+                    console.log(data?.attachments[0].name,'3324')
+                    setFile(data?.attachments[0])
+                }
             }
+
         })();
         return () => {
             ///   homeAPI.cancelRequest();
         };
 
-    }, []);
+    }, [searchParams.id]);
     // useEffect(() => {
     //     if(getRefresh){
     //        const data:any =  handlerGetDocInfo()
