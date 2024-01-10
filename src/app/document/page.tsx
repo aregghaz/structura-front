@@ -12,7 +12,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {documentId, setDocumentId, setRefreshStatus} from "@/lib/document/document";
 import {fakeUrl} from "@/utils/utils";
 import {IAttacment} from "@/types/global";
-// export const dynamic = 'force-static'
+export const dynamic = 'force-static'
 //
 // export const dynamicParams = true // true | false,
 // export const dynamic = 'force-dynamic'
