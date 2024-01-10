@@ -41,6 +41,7 @@ export default  function Page(cnt:any) {
 
     useEffect(() => {
         (async () => {
+            console.log(searchParams.id,'2123213')
             const data:any = await getEmailById(searchParams.id)
             console.log(data,'11111111')
             if(data){
